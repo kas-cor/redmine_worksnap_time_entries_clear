@@ -19,12 +19,9 @@ function getMaxId($hash) {
 }
 
 function delTime($hash, $maxId) {
-    echo $hash . ' - ' . $maxId . PHP_EOL;
-    /*
-    $query = "SELECT FROM `time_entries` WHERE `comments` LIKE '%" . $hash . "%' AND `id`!='" . $maxId . "'";
+    global $mysqli;
+    $query = "DELETE FROM `time_entries` WHERE `comments` LIKE '%" . $hash . "%' AND `id`!='" . $maxId . "'";
     mysqli_query($mysqli, $query);
-     * 
-     */
 }
 
 if ($mysqli = mysqli_connect($db['host'], $db['user'], $db['pass'], $db['base'])) {
